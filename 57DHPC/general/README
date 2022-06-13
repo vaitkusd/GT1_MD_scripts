@@ -1,0 +1,7 @@
+In order to run the pipeline, these files need to be modified:
+    'prepare_md.sh' - acceptor three letter names; number of steered atoms (simulations) and atoms names in the bottom
+    'create_md.py' - acceptor three letter names at the top
+    'extract_steer_atoms.py' - change atom names at the top (based on acceptor .gro file)
+    'run_md.sh' - change number of production runs (and their names)
+    'rmsd.sh' - names of the runs to loop through
+    MDP md files - make sure you have one for each steered simulation
