@@ -15,7 +15,7 @@ cd md/
 for receptor in *
 do
     cd $receptor 
-    chmod +x ./prepare_md.sh
+    chmod +x ./*.sh
     source prepare_md.sh      
     cd ../
 done

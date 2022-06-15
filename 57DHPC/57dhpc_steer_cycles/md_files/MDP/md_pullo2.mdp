@@ -2,7 +2,7 @@ title       = Steered MD simulation
 ; Run parameters
 integrator  = md
 dt          = 0.002     ; 2 fs
-nsteps      = 250000    ; 500 ps
+nsteps      = 550000    ; 1100 ps
 ; Output parameters
 nstxout-compressed   = 500       ; every 1 ps
 nstfout     = 500
@@ -48,10 +48,11 @@ pbc     = xyz
 DispCorr    = no
 ; Pull code
 pull                    = yes
-pull_ncoords            = 1         ; only one reaction coordinate 
-pull_ngroups            = 2         ; three groups
+pull_ncoords            = 2         ; only one reaction coordinate 
+pull_ngroups            = 3         ; three groups
 pull_group1_name        = LIGO2
-pull_group2_name        = HIS 
+pull_group2_name        = GLC 
+pull_group3_name        = HIS 
 
 pull_coord1_type        = flat_bottom  ; harmonic potential
 pull_coord1_geometry    = distance  ; distance between two groups
@@ -60,5 +61,13 @@ pull_coord1_groups      = 1 2
 pull_coord1_start       = no       ; reference distance is defined with init
 pull_coord1_rate        = 0.0      ; no pulling, just restrain
 pull_coord1_k           = 5000     ; kJ mol^-1 nm^-2
-pull-coord1-init        = 0.28
+pull-coord1-init        = 0.4
 
+pull_coord2_type        = flat_bottom  ; harmonic potential
+pull_coord2_geometry    = distance  ; distance between two groups
+pull_coord2_dim         = Y Y Y
+pull_coord2_groups      = 1 3
+pull_coord2_start       = no       ; reference distance is defined with init
+pull_coord2_rate        = 0.0      ; no pulling, just restrain
+pull_coord2_k           = 5000     ; kJ mol^-1 nm^-2
+pull-coord2-init        = 0.28

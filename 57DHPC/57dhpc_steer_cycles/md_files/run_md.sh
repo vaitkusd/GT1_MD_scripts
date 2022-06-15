@@ -61,61 +61,62 @@ echo "Constant pressure equilibration complete."
 # PRODUCTION MD #
 #################
 # Depends on how many steerings are we doing, will have to modify both this and according MDP files
-echo "Starting steered MD simulation..."
+echo "Starting first simulation cycle..."
 
 cd ../
 mkdir Steered_MD
 cd Steered_MD
 
+# Steer O5
 gmx_mpi grompp -f $MDP/md_pullo1.mdp -c ../NPT/npt.gro -p $CWD/topol_complex.top -t ../NPT/npt.cpt -n $CWD/index.ndx -o md_pullo1.tpr 
+gmx_mpi mdrun -deffnm md_pull -s md_pullo1.tpr
 
-gmx_mpi mdrun -deffnm md_pullo1
+# Classic
+gmx_mpi grompp -f $MDP/md.mdp -c md_pull.gro -p $CWD/topol_complex.top -t md_pull.cpt -n $CWD/index.ndx -o md.tpr 
+gmx_mpi mdrun -deffnm md_pull -s md.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
 
-gmx_mpi grompp -f $MDP/md_pullo2.mdp -c ../NPT/npt.gro -p $CWD/topol_complex.top -t ../NPT/npt.cpt -n $CWD/index.ndx -o md_pullo2.tpr 
+# Steer O7
+gmx_mpi grompp -f $MDP/md_pullo2.mdp -c md.gro -p $CWD/topol_complex.top -t md_pull.cpt -n $CWD/index.ndx -o md_pullo2.tpr 
+gmx_mpi mdrun -deffnm md_pull -s md_pullo2.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
 
-gmx_mpi mdrun -deffnm md_pullo2
+# Classic
+gmx_mpi convert-tpr -s md.tpr -until 2000 -o md_n.tpr
+gmx_mpi mdrun -deffnm md_pull -s md_n.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
 
-echo "steered MD complete."
-
-echo "Continuing with classic production MD"
+echo "First MD cycle complete"
 
 
-gmx_mpi grompp -f $MDP/md.mdp -c md_pullo1.gro -p $CWD/topol_complex.top -t md_pullo1.cpt -n $CWD/index.ndx -o mdo1.tpr 
-
-gmx_mpi mdrun -deffnm md_pullo1 -s mdo1.tpr -cpi md_pullo1.cpt -px md_pullo1_pullx -pf md_pullo1_pullf
-
-gmx_mpi grompp -f $MDP/md.mdp  -c md_pullo2.gro -p $CWD/topol_complex.top -t md_pullo2.cpt -n $CWD/index.ndx -o mdo2.tpr 
-
-gmx_mpi mdrun -deffnm md_pullo2 -s mdo2.tpr -cpi md_pullo2.cpt -px md_pullo2_pullx -pf md_pullo2_pullf
-
-echo "Production MD complete."
-
-echo "Entering cycle mode"
+echo "Entering loop mode..."
 
 time=2000
-steer_t=500
-release_t=1500
+steer_t=100
+release_t=900
 
 # original run is cycle 0
 # {1..2} will do two more cycles
 for cyc in {1..2}
 do
 
-# Steer
+# Steer O5
 time=$(($time + $steer_t))
 gmx_mpi convert-tpr -s md_pullo1.tpr -until $time -o md_pullo1_n.tpr
-gmx_mpi mdrun -deffnm md_pullo1 -s md_pullo1_n.tpr -cpi md_pullo1.cpt -px md_pullo1_pullx -pf md_pullo1_pullf
-
-gmx_mpi convert-tpr -s md_pullo2.tpr -until $time -o md_pullo2_n.tpr
-gmx_mpi mdrun -deffnm md_pullo2 -s md_pullo2_n.tpr -cpi md_pullo2.cpt -px md_pullo2_pullx -pf md_pullo2_pullf
+gmx_mpi mdrun -deffnm md_pull -s md_pullo1_n.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
 
 # Release
 time=$(($time + $release_t))
-gmx_mpi convert-tpr -s mdo1.tpr -until $time -o mdo1_n.tpr
-gmx_mpi mdrun -deffnm md_pullo1 -s mdo1_n.tpr -cpi md_pullo1.cpt -px md_pullo1_pullx -pf md_pullo1_pullf
+gmx_mpi convert-tpr -s md.tpr -until $time -o md_n.tpr
+gmx_mpi mdrun -deffnm md_pull -s md_n.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
 
-gmx_mpi convert-tpr -s mdo2.tpr -until $time -o mdo2_n.tpr
-gmx_mpi mdrun -deffnm md_pullo2 -s mdo1_n.tpr -cpi md_pullo2.cpt -px md_pullo2_pullx -pf md_pullo2_pullf
+# Steer O7
+time=$(($time + $steer_t))
+gmx_mpi convert-tpr -s md_pullo2.tpr -until $time -o md_pullo2_n.tpr
+gmx_mpi mdrun -deffnm md_pull -s md_pullo2_n.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
+
+# Release
+time=$(($time + $release_t))
+gmx_mpi convert-tpr -s md.tpr -until $time -o md_n.tpr
+gmx_mpi mdrun -deffnm md_pull -s md_n.tpr -cpi md_pull.cpt -px md_pull_pullx -pf md_pull_pullf
+
 done
 
 echo "Cycles completed"
