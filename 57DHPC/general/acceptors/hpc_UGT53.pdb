@@ -1,0 +1,59 @@
+HETATM    1  C   ZIN     1     -19.652  39.713   1.380  1.00  0.00           C  
+HETATM    2  C   ZIN     1     -20.126  38.448   0.798  1.00  0.00           C  
+HETATM    3  C   ZIN     1     -19.724  39.896   2.760  1.00  0.00           C  
+HETATM    4  C   ZIN     1     -19.125  40.755   0.606  1.00  0.00           C  
+HETATM    5  C   ZIN     1     -20.615  37.511   1.626  1.00  0.00           C  
+HETATM    6  C   ZIN     1     -19.291  41.071   3.376  1.00  0.00           C  
+HETATM    7  C   ZIN     1     -18.687  41.939   1.210  1.00  0.00           C  
+HETATM    8  C   ZIN     1     -18.770  42.096   2.593  1.00  0.00           C  
+HETATM    9  C   ZIN     1     -20.700  37.688   3.087  1.00  0.00           C  
+HETATM   10  C   ZIN     1     -20.134  38.067  -0.612  1.00  0.00           C  
+HETATM   11  C   ZIN     1     -19.472  36.912  -1.019  1.00  0.00           C  
+HETATM   12  C   ZIN     1     -20.804  38.859  -1.539  1.00  0.00           C  
+HETATM   13  C   ZIN     1     -19.480  36.547  -2.365  1.00  0.00           C  
+HETATM   14  C   ZIN     1     -20.812  38.494  -2.886  1.00  0.00           C  
+HETATM   15  C   ZIN     1     -20.150  37.338  -3.299  1.00  0.00           C  
+HETATM   16  O   ZIN     1     -20.243  38.892   3.599  1.00  0.00           O  
+HETATM   17  O   ZIN     1     -19.013  40.672  -0.751  1.00  0.00           O  
+HETATM   18  O   ZIN     1     -18.342  43.249   3.175  1.00  0.00           O  
+HETATM   19  O   ZIN     1     -21.155  36.806   3.808  1.00  0.00           O  
+HETATM   20  H   ZIN     1     -19.294  39.898  -1.198  1.00  0.00           H  
+HETATM   21  H   ZIN     1     -18.398  43.354   4.104  1.00  0.00           H  
+HETATM   22  H   ZIN     1     -20.948  36.623   1.219  1.00  0.00           H  
+HETATM   23  H   ZIN     1     -19.357  41.178   4.400  1.00  0.00           H  
+HETATM   24  H   ZIN     1     -18.301  42.699   0.629  1.00  0.00           H  
+HETATM   25  H   ZIN     1     -18.977  36.328  -0.327  1.00  0.00           H  
+HETATM   26  H   ZIN     1     -21.294  39.714  -1.232  1.00  0.00           H  
+HETATM   27  H   ZIN     1     -18.990  35.692  -2.670  1.00  0.00           H  
+HETATM   28  H   ZIN     1     -21.308  39.079  -3.576  1.00  0.00           H  
+HETATM   29  H   ZIN     1     -20.156  37.068  -4.295  1.00  0.00           H  
+CONECT    1    2    3    4
+CONECT    2    1    5   10
+CONECT    3    1    6   16
+CONECT    4    1    7   17
+CONECT    5    2    9   22
+CONECT    6    3    8   23
+CONECT    7    4    8   24
+CONECT    8    6    7   18
+CONECT    9    5   16   19
+CONECT   10    2   11   12
+CONECT   11   10   13   25
+CONECT   12   10   14   26
+CONECT   13   11   15   27
+CONECT   14   12   15   28
+CONECT   15   13   14   29
+CONECT   16    3    9
+CONECT   17    4   20
+CONECT   18    8   21
+CONECT   19    9
+CONECT   20   17
+CONECT   21   18
+CONECT   22    5
+CONECT   23    6
+CONECT   24    7
+CONECT   25   11
+CONECT   26   12
+CONECT   27   13
+CONECT   28   14
+CONECT   29   15
+END
