@@ -7,10 +7,10 @@ This repository acts as a supplementary for my thesis thesis project. It contain
 
 ### Contents
 
-*[Thesis report](https://github.com/vaitkusd/GT1_MD_scripts/blob/main/DV_thesis_202209.pdf)
-*[Scripts with data](https://github.com/vaitkusd/GT1_MD_scripts/tree/main/project_data) - everything needed to replicate the simulations.
-*[Trajectory plots](https://github.com/vaitkusd/GT1_MD_scripts/tree/main/trajectory_plots) - line plots for every simulation discussed, with thresholds for reactivity indicated.
-*[Blank project] - an empty pipeline, that could be used for other GTs and enzymes in general with minimal (optimistically) adjustments
+* [Thesis report](https://github.com/vaitkusd/GT1_MD_scripts/blob/main/DV_thesis_202209.pdf)
+* [Scripts with data](https://github.com/vaitkusd/GT1_MD_scripts/tree/main/project_data) - everything needed to replicate the simulations.
+* [Trajectory plots](https://github.com/vaitkusd/GT1_MD_scripts/tree/main/trajectory_plots) - line plots for every simulation discussed, with thresholds for reactivity indicated.
+* [Blank project](https://github.com/vaitkusd/GT1_MD_scripts/tree/main/blank_project) - an empty pipeline, that could be used for other GTs and enzymes in general with minimal (optimistically) adjustments
 
 <!-- GETTING STARTED -->
 ## Getting Started
