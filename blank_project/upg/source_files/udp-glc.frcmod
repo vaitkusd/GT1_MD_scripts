@@ -1,0 +1,28 @@
+remark goes here
+MASS
+
+BOND
+Cg-OS  285.0    1.460   Copy of Cg-Os from GLYCAM06j
+
+ANGLE
+Os-Cg-OS    100.00    112.00   Copy of Os-Cg-Os from GLYCAM06j
+OS-Cg-Cg     70.00    108.50   Copy of Os-Cg-Cg from GLYCAM06j
+H2-Cg-OS     50.00    109.50   Copy of H2-CT-OS from parm10 (same as parm99)
+Cg-OS-P      100.0    120.50   Copy of CT-OS-P  from parm10 (same as parm99)
+
+DIHE
+H1-Cg-Cg-OS    1    0.05          0.0             3.         SCEE=1.0 SCNB=1.0 (Copy of H1-Cg-Cg-Os GLYCAM06j)
+OS-Cg-Cg-Cg    1   -0.27          0.0             1.         SCEE=1.0 SCNB=1.0 (Copy of Os-Cg-Cg-Cg GLYCAM06j)
+OS-Cg-Os-Cg    1    0.96          0.0            -3.         SCEE=1.0 SCNB=1.0 (Copy of Os-Cg-Os-Cg GLYCAM06j)
+               1    1.38          0.0            -2.         SCEE=1.0 SCNB=1.0
+               1    1.08          0.0             1.         SCEE=1.0 SCNB=1.0
+Oh-Cg-Cg-OS    1   -1.10          0.0            -1.         SCEE=1.0 SCNB=1.0 (Copy of Oh-Cg-Cg-Os GLYCAM06j) 
+               1    0.25          0.0             2.         SCEE=1.0 SCNB=1.0
+H2-Cg-OS-P     3    1.150         0.000           3.000      JCC,7,(1986),230 (Copy of X -c3-os-X gaff2)
+Os-Cg-OS-P     3    1.150         0.000           3.000      JCC,7,(1986),230 (Copy of X -c3-os-X gaff2)
+Cg-Cg-OS-P     3    1.150         0.000           3.000      JCC,7,(1986),230 (Copy of X -c3-os-X gaff2)
+
+IMPROPER
+
+NONBON
+

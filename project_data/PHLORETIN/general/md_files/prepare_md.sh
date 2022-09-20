@@ -11,7 +11,7 @@ sleep .1
 
 ## conda env with acpype installed
 ## can be omitted, if the default python env has all required packages
-conda activate default
+## conda activate default
 
 # Set some environment variables 
 CWD=`pwd`

@@ -1,11 +1,10 @@
 #!/bin/bash
-### Script to submit the simulation extrension job
 ### 
 ### The account information below need to be changed.
 ###
 ### 
 ### Account information
-#PBS -W group_list=dtu_00007 -A dtu_00007
+#PBS -W group_list=... -A ...
 ### Job name
 #PBS -N XXX
 ### Specify the number of nodes and thread (ppn) for your job.
@@ -27,8 +26,8 @@ module load gcc
 module load gromacs/2021.3-plumed 
 
 # Commands
-export OMP_NUM_THREADS=4
 
+export OMP_NUM_THREADS=4
 bash ./extend_md.sh
 
 date

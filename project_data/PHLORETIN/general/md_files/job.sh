@@ -4,7 +4,7 @@
 ###
 ### 
 ### Account information
-#PBS -W group_list=dtu_00007 -A dtu_00007
+#PBS -W group_list=... -A ...
 ### Job name
 #PBS -N XXX
 ### Specify the number of nodes and thread (ppn) for your job.
